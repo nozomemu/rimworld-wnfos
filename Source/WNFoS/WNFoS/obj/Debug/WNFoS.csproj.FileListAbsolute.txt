@@ -1,0 +1,6 @@
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\bin\Debug\WNFoS.dll
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\bin\Debug\WNFoS.pdb
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\obj\Debug\WNFoS.csproj.AssemblyReference.cache
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\obj\Debug\WNFoS.csproj.CoreCompileInputs.cache
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\obj\Debug\WNFoS.dll
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Flee On Sight\Source\WNFoS\WNFoS\obj\Debug\WNFoS.pdb

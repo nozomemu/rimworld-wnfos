@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+	<MainButtonDef>
+		<defName>WNFoS_MainButton_Orders</defName>
+		<label>orders</label>
+		<tabWindowClass>VFEEmpire.MainTabWindow_Royalty</tabWindowClass>
+		<workerClass>VFEEmpire.MainButtonWorker_Royalty</workerClass>
+		<iconPath>MenuButton/IconRoyalty</iconPath>
+		<minimized>true</minimized>
+		<order>100</order>
+	</MainButtonDef>
+	-->
+	
+	<MainButtonDef>
+		<defName>WNFoS_MainButton_Orders</defName>
+		<label>Bingo Book</label>
+		<description>View all current Bingo Book entries and village orders regarding select notable ninja.</description>
+		<tabWindowClass>WNFoS.WNFoS_MainTabWindow_Orders</tabWindowClass>
+		<order>100</order>
+		<validWithoutMap>true</validWithoutMap>
+		<minimized>True</minimized>
+		<iconPath>UI/Buttons/MainButtons/BingoBook</iconPath>
+	</MainButtonDef>
+
+	<!-- Custom Order -->
+	<WNFoS.WNFoS_OrderDef>
+		<defName>WNFoS_Order_Custom</defName>
+		<label>Special Order</label>
+		<description>A special order containing specific instructions or information.</description>
+		<details>All citizens are required to adhere to future instructions that will be indicated here.</details>
+		<orderTypeDescription>Pawns will have no specific actions for targets with this order. Mainly used for keeping tabs and taking note of specific information about targets.</orderTypeDescription>
+	</WNFoS.WNFoS_OrderDef>
+
+	<!-- Official Orders -->
+	
+	<WNFoS.WNFoS_OrderDef>
+		<defName>WNFoS_Order_FleeOnSight</defName>
+		<label>Flee on Sight</label>
+		<description>A formal order to retreat immediately upon sighting.</description>
+		<details>All civilians and members of the regular forces are ordered to retreat immediately upon sighting.</details>
+		<orderTypeDescription>Pawns will attempt to flee upon seeing the target, save for any specified exceptions.</orderTypeDescription>
+		
+		<orderExceptions>
+			<requiresAllExceptions>false</requiresAllExceptions>
+			<exceptedRoyalTitles>
+				<li>WN_Kage</li>
+			</exceptedRoyalTitles>
+		</orderExceptions>
+	</WNFoS.WNFoS_OrderDef>
+	
+	<WNFoS.WNFoS_OrderDef>
+		<defName>WNFoS_Order_KillOnSight</defName>
+		<label>Kill on Sight</label>
+		<description>A formal order to eliminate the target upon sighting.</description>
+		<details>Military forces, aside from those excepted, are ordered to eliminate the target upon sighting.</details>
+		<orderTypeDescription>Pawns not excepted will attempt to kill the target when located.</orderTypeDescription>
+		<!--Exceptions are probably vulnerable pawns-->
+		<!--
+		<orderExceptions>
+			<requiresAllExceptions>false</requiresAllExceptions>
+			<exceptedRoyalTitles>
+				<li>WN_Kage</li>
+			</exceptedRoyalTitles>
+		</orderExceptions>
+		-->
+	</WNFoS.WNFoS_OrderDef>
+	
+	<WNFoS.WNFoS_OrderDef>
+		<defName>WNFoS_Order_CaptureAlive</defName>
+		<label>Capture Alive</label>
+		<description>A formal order to capture the target alive.</description>
+		<details>Eligible units are ordered to capture the target alive.</details>
+		<orderTypeDescription>Pawns not excepted will attempt to capture the target when located.</orderTypeDescription>
+	</WNFoS.WNFoS_OrderDef>
+	
+	<!-- Idea from Itachi: Avoid eye contact order (maybe make it so enemies within immediate vicinity to the pawn gain a hediff with sight(?) penalties but make them immune to Sharingan abilities requiring eye contact -->
+
+	<!-- Custom Reason -->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_SpecialReason</defName>
+		<label>Special Reason</label>
+		<description>Citizens are ordered to .</description>
+		<priority>2000</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyJutsu</reasonIconPath> <!-- Maybe make it so you can select custom icons like in ideoligions -->
+	</WNFoS.WNFoS_OrderReasonDef>
+
+	<!-- Official Reasons -->
+	<!--Deadly Jutsu-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyJutsu</defName>
+		<label>Wields Deadly Jutsu</label>
+		<description>This ninja wields a deadly jutsu. All but the most experienced of ninja would drop dead in seconds against such a technique.</description>
+		<priority>1000</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyJutsu</reasonIconPath>
+		<!--<drawAbilityIcon>true</drawAbilityIcon>-->
+		<!--<requiredAbility>Insert Flying Raijin here</requiredAbility>-->
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--Selectable Reasons-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_Terrorism</defName>
+		<label>Terrorism</label>
+		<description>This ninja has committed acts of terrorism against our village.</description>
+		<priority>900</priority>
+		<selectable>true</selectable>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_Treason</defName>
+		<label>Treason</label>
+		<description>This ninja has committed treason against our village.</description>
+		<priority>900</priority>
+		<selectable>true</selectable>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_Murder</defName>
+		<label>Murder</label>
+		<description>This ninja has murdered someone from our village.</description>
+		<priority>900</priority>
+		<selectable>true</selectable>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_Threat</defName>
+		<label>Threat</label>
+		<description>This ninja is considered a threat to our village.</description>
+		<priority>900</priority>
+		<selectable>true</selectable>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--Deadly Ninja-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyNinjaV</defName>
+		<label>Lethality V</label>
+		<description>This ninja sits atop an ever-increasing mountain of corpses. Very few could compete in sheer lethality.</description>
+		<priority>500</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+		<reasonRequirements>
+			<requiredKills>500</requiredKills>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyNinjaIV</defName>
+		<label>Lethality IV</label>
+		<description>This ninja is an accomplished and well-known assassin.</description>
+		<priority>400</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+		<reasonRequirements>
+			<requiredKills>250</requiredKills>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyNinjaIII</defName>
+		<label>Lethality III</label>
+		<description>This ninja has demonstrated efficiency and competency in silencing targets.</description>
+		<priority>300</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+		<reasonRequirements>
+			<requiredKills>100</requiredKills>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyNinjaII</defName>
+		<label>Lethality II</label>
+		<description>This ninja has displayed a proficiency in silencing enemy units.</description>
+		<priority>200</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+		<reasonRequirements>
+			<requiredKills>50</requiredKills>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_DeadlyNinjaI</defName>
+		<label>Lethality I</label>
+		<description>This ninja has shown to be capable of eliminating multiple opponents.</description>
+		<priority>100</priority>
+		<reasonIconPath>UI/Icons/OrderReason/DeadlyNinja</reasonIconPath>
+		<reasonRequirements>
+			<requiredKills>25</requiredKills>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--Ninjutsu-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_NinjutsuMasteryV</defName>
+		<label>Ninjutsu Mastery V</label>
+		<description>This ninja's grasp on ninjutsu is easily kage-level.</description>
+		<priority>250</priority>
+		<reasonIconPath>UI/Icons/OrderReason/NinjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Ninjutsu</requiredAbilityClass>
+				<requiredLevel>19</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_NinjutsuMasteryIV</defName>
+		<label>Ninjutsu Mastery IV</label>
+		<description>This ninja's grasp on ninjutsu is at least elite jōnin-level.</description>
+		<priority>200</priority>
+		<reasonIconPath>UI/Icons/OrderReason/NinjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Ninjutsu</requiredAbilityClass>
+				<requiredLevel>15</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_NinjutsuMasteryIII</defName>
+		<label>Ninjutsu Mastery III</label>
+		<description>This ninja's grasp on ninjutsu is at least jōnin-level.</description>
+		<priority>150</priority>
+		<reasonIconPath>UI/Icons/OrderReason/NinjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Ninjutsu</requiredAbilityClass>
+				<requiredLevel>11</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_NinjutsuMasteryII</defName>
+		<label>Ninjutsu Mastery II</label>
+		<description>This ninja's grasp on ninjutsu is around chūnin-level.</description>
+		<priority>100</priority>
+		<reasonIconPath>UI/Icons/OrderReason/NinjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Ninjutsu</requiredAbilityClass>
+				<requiredLevel>8</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_NinjutsuMasteryI</defName>
+		<label>Ninjutsu Mastery I</label>
+		<description>This ninja's grasp on ninjutsu is genin-level at most.</description>
+		<priority>50</priority>
+		<reasonIconPath>UI/Icons/OrderReason/NinjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Ninjutsu</requiredAbilityClass>
+				<requiredLevel>1</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--Taijutsu-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_TaijutsuMasteryV</defName>
+		<label>Taijutsu Mastery V</label>
+		<description>This ninja's grasp on taijutsu is easily kage-level.</description>
+		<priority>250</priority>
+		<reasonIconPath>UI/Icons/OrderReason/TaijutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Taijutsu</requiredAbilityClass>
+				<requiredLevel>19</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_TaijutsuMasteryIV</defName>
+		<label>Taijutsu Mastery IV</label>
+		<description>This ninja's grasp on taijutsu is at least elite jōnin-level.</description>
+		<priority>200</priority>
+		<reasonIconPath>UI/Icons/OrderReason/TaijutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Taijutsu</requiredAbilityClass>
+				<requiredLevel>15</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_TaijutsuMasteryIII</defName>
+		<label>Taijutsu Mastery III</label>
+		<description>This ninja's grasp on taijutsu is at least jōnin-level.</description>
+		<priority>150</priority>
+		<reasonIconPath>UI/Icons/OrderReason/TaijutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Taijutsu</requiredAbilityClass>
+				<requiredLevel>11</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_TaijutsuMasteryII</defName>
+		<label>Taijutsu Mastery II</label>
+		<description>This ninja's grasp on taijutsu is around chūnin-level.</description>
+		<priority>100</priority>
+		<reasonIconPath>UI/Icons/OrderReason/TaijutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Taijutsu</requiredAbilityClass>
+				<requiredLevel>8</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_TaijutsuMasteryI</defName>
+		<label>Taijutsu Mastery I</label>
+		<description>This ninja's grasp on taijutsu is genin-level at most.</description>
+		<priority>50</priority>
+		<reasonIconPath>UI/Icons/OrderReason/TaijutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Taijutsu</requiredAbilityClass>
+				<requiredLevel>1</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--Genjutsu-->
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_GenjutsuMasteryV</defName>
+		<label>Genjutsu Mastery V</label>
+		<description>This ninja's grasp on genjutsu is easily kage-level.</description>
+		<priority>250</priority>
+		<reasonIconPath>UI/Icons/OrderReason/GenjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Genjutsu</requiredAbilityClass>
+				<requiredLevel>19</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_GenjutsuMasteryIV</defName>
+		<label>Genjutsu Mastery IV</label>
+		<description>This ninja's grasp on genjutsu is at least elite jōnin-level.</description>
+		<priority>200</priority>
+		<reasonIconPath>UI/Icons/OrderReason/GenjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Genjutsu</requiredAbilityClass>
+				<requiredLevel>15</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_GenjutsuMasteryIII</defName>
+		<label>Genjutsu Mastery III</label>
+		<description>This ninja's grasp on genjutsu is at least jōnin-level.</description>
+		<priority>150</priority>
+		<reasonIconPath>UI/Icons/OrderReason/GenjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Genjutsu</requiredAbilityClass>
+				<requiredLevel>11</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_GenjutsuMasteryII</defName>
+		<label>Genjutsu Mastery II</label>
+		<description>This ninja's grasp on genjutsu is around chūnin-level.</description>
+		<priority>100</priority>
+		<reasonIconPath>UI/Icons/OrderReason/GenjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Genjutsu</requiredAbilityClass>
+				<requiredLevel>8</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<WNFoS.WNFoS_OrderReasonDef>
+		<defName>WNFoS_OrderReason_GenjutsuMasteryI</defName>
+		<label>Genjutsu Mastery I</label>
+		<description>This ninja's grasp on genjutsu is genin-level at most.</description>
+		<priority>50</priority>
+		<reasonIconPath>UI/Icons/OrderReason/GenjutsuMastery</reasonIconPath>
+		<reasonRequirements>
+			<requiredAbilityClassLevels>
+				<requiredAbilityClass>WN_Genjutsu</requiredAbilityClass>
+				<requiredLevel>1</requiredLevel>
+			</requiredAbilityClassLevels>
+		</reasonRequirements>
+	</WNFoS.WNFoS_OrderReasonDef>
+	
+	<!--A-->
+
+</Defs>
